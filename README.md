@@ -33,6 +33,7 @@ Quarter total_sold_quantity.
 10. Get the Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021? The final output contains these fields,
 division product_code.
 ## Used tableau to create dashboard for important insights.
+https://public.tableau.com/authoring/ConsumerGoodsAd_HocInsights/ConsumerGoodsAd_HocInsights#1
 ### Insights
 1. Sales are highest in November  and lowest in April. 
 2. Total sales are steadily increasing every year from 2019 to 2021.
