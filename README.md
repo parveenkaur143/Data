@@ -32,3 +32,4 @@ Quarter total_sold_quantity.
 9. Which channel helped to bring more gross sales in the fiscal year 2021 and the percentage of contribution? The final output contains these fields, channel gross_sales_mln percentage.
 10. Get the Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021? The final output contains these fields,
 division product_code.
+Used tableau to create dashboard for important insights.
