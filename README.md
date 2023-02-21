@@ -32,4 +32,9 @@ Quarter total_sold_quantity.
 9. Which channel helped to bring more gross sales in the fiscal year 2021 and the percentage of contribution? The final output contains these fields, channel gross_sales_mln percentage.
 10. Get the Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021? The final output contains these fields,
 division product_code.
-Used tableau to create dashboard for important insights.
+## Used tableau to create dashboard for important insights.
+### Insights
+1. Sales are highest in November  and lowest in April. 
+2. Total sales are steadily increasing every year from 2019 to 2021.
+3. There are more products in the notebook segment. so that they can produce more products in this product category.
+4. In 2021 the retailer's distribution method generates more gross sales.
