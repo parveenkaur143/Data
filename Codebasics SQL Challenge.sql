@@ -52,18 +52,18 @@ unique_products_2021 AS
 (SELECT p.segment, COUNT(DISTINCT p.product_code) AS unique_products_2021 FROM gdb023.dim_product  p
 INNER JOIN gdb023.fact_sales_monthly s WHERE p.product_code= s.product_code
 AND s.fiscal_year=2021 GROUP BY p.segment ORDER BY unique_products_2021 DESC)
-SELECT *, (pc_2021.unique_products_2021-pc_2020.unique_products_2020) AS difference
+SELECT pc_2021.segment,pc_2020.unique_products_2020,pc_2021.unique_products_2021, (pc_2021.unique_products_2021-pc_2020.unique_products_2020) AS difference
 FROM  unique_products_2020 AS pc_2020 
 JOIN unique_products_2021   AS pc_2021 ON pc_2020.segment= pc_2021.segment  ORDER BY difference DESC
 
-segment      unique_products_2020  segment      unique_products_2021  difference  
------------  --------------------  -----------  --------------------  ------------
-Accessories                    69  Accessories                   103            34
-Notebook                       92  Notebook                      108            16
-Peripherals                    59  Peripherals                    75            16
-Desktop                         7  Desktop                        22            15
-STORAGE                        12  STORAGE                        17             5
-Networking                      6  Networking                      9             3
+segment      unique_products_2020  unique_products_2021  difference  
+-----------  --------------------  --------------------  ------------
+Accessories                    69                   103            34
+Notebook                       92                   108            16
+Peripherals                    59                    75            16
+Desktop                         7                    22            15
+Storage                        12                    17             5
+Networking                      6                     9             3
 
 ---5. Get the products that have the highest AND lowest manufacturing costs. 
 
@@ -172,10 +172,6 @@ Direct                406.69         15.47
 Distributor           297.18         11.31
 
 ---10.Get the Top 3 products IN EACH division that have a high total_sold_quantity IN the fiscal_year 2021? 
-
-SELECT p.product_code, SUM(fsm.sold_quantity) OVER (PARTITION  BY P.division) AS total_quantity
-FROM gdb023.dim_product AS p
-INNER JOIN  gdb023.fact_sales_monthly AS fsm WHERE fsm.fiscal_year= 2021
 
 WITH CTE AS
 (SELECT p.product_code,p.division,SUM(fsm.sold_quantity) AS total_quantity,
